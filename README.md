@@ -1,3 +1,12 @@
+# Packages Dependencies
+npm install react-router-dom
+npm install axios
+
+# API source for Crypto Currency
+https://www.coingecko.com/en/api
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2C%20ethereum&order=market_cap_desc&per_page=100&page=1&sparkline=false
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
