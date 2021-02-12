@@ -9,14 +9,16 @@ function CoinDetailPage() {
     const [coinData, setCoinData] = useState({});
     const [isLoading, setIsLoading] = useState(false);
 
-    // const formatData = (data) => {
-    // return data.map((el) => {
-    //     return {
-    //     t: el[0],
-    //     y: el[1].toFixed(2),
-    //     };
-    // });
-    // };
+    // Convert Data from array of arrays => array of objects
+    const formatData = (data) => {
+    return data.map((el) => {
+        return {
+        t: el[0],
+        // truncate to two demial places.
+        y: el[1].toFixed(2),
+        };
+    });
+    };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -51,9 +53,9 @@ function CoinDetailPage() {
             console.log(day);
         
             setCoinData({
-                day: day.data.prices,
-                week: week.data.prices,
-                year: year.data.prices,
+                day: formatData(day.data.prices),
+                week: formatData(week.data.prices),
+                year: formatData(year.data.prices),
                 // Get the first element of the json data
                 detail: detail.data[0],
             });
@@ -69,17 +71,15 @@ function CoinDetailPage() {
         } 
         return ( 
             <div className="coinlist">
-                <HistoryChart />
+                {/* Send data prop */}
+                <HistoryChart data={coinData}/>
                 <CoinData />
             </div>
         );
     };
 
-    return (
-        <div>
-            
-        </div>
-    )
-}
+    return renderData();
+
+};
 
 export default CoinDetailPage
