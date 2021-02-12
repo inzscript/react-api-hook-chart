@@ -19,6 +19,7 @@ export const WatchListContextProvider = (props) => {
     localStorage.setItem("watchList", watchList);
   }, [watchList]);
 
+  // Remove coin from watchlist onClick event.
   const deleteCoin = (coin) => {
     setWatchList(
       watchList.filter((el) => {

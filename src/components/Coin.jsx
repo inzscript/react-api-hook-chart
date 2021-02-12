@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Coin({coin}) {
+// Destructure Coin props
+function Coin({coin, deleteCoin}) {
     return (
-        <Link to="/coindetail">
+        <Link to="/coindetail" className="text-decoration-none my-1 coin">
             <li className="coinlist-item list-group-item list-group-item-action d-flex justify-content-between align-items-center text-dark">
                 <img className="coinlist-image" src={coin.image} alt="" />
                 <span className="text-decoration-none">{coin.current_price}</span>
@@ -25,8 +26,9 @@ function Coin({coin}) {
                 </span>
                 <i
                 onClick={(e) => {
+                    // Prevent the link redirect behavior to execute and stay on current page.
                     e.preventDefault();
-                    // deleteCoin(coin.id);
+                    deleteCoin(coin.id);
                 }}
                 className="delete-icon far fa-times-circle text-danger"
                 ></i>
