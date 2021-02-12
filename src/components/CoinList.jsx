@@ -2,6 +2,8 @@ import React, { useEffect, useState, useContext } from 'react';
 import coinGecko from '../apis/coinGecko';
 import axios from 'axios';
 import { WatchListContext } from '../contexts/watchListContext';
+import Coin from './Coin';
+
 
 function CoinList() {
     const [coins, setCoins] = useState([]);
@@ -27,12 +29,24 @@ function CoinList() {
         }
 
         fetchData()
-    }, [])
-    return (
-        <div>
-            
-        </div>
-    )
-}
+    }, []);
+
+    const renderCoins = () => {
+        if (isLoading) {
+          return <div>Loading...</div>;
+        }
+
+        return (
+            <ul className="coinlist list-group mt-2">
+                {coins.map((coin) => {
+                    return <Coin key={coin.id} coin={coin} />;
+                })}
+            </ul>
+
+        )
+    }
+
+    return <div>{renderCoins()}</div>;
+};
 
 export default CoinList
