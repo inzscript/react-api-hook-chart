@@ -7,14 +7,15 @@ function CoinList() {
     const [coins, setCoins] = useState([]);
     // Destructure the watchlist props
     const { watchList } = useContext( WatchListContext )
-    console.log( watchList );
+    // console.log( watchList );
     useEffect (() => {
         const fetchData = async () => {
             // GET call to coinGecko
             const response = await coinGecko.get("/coins/markets", {
                 params: {
                     vs_currency: "usd",
-                    ids: "bitcoin,ethereum"
+                    // Use context to generate list of bitcoins
+                    ids: watchList.join(","),
                 }
             })
             console.log(response.data);
