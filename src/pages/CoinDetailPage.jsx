@@ -73,7 +73,7 @@ function CoinDetailPage() {
             <div className="coinlist">
                 {/* Send data prop */}
                 <HistoryChart data={coinData}/>
-                <CoinData />
+                <CoinData data={coinData.detail} />
             </div>
         );
     };

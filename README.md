@@ -1,10 +1,17 @@
 # Packages Dependencies
 npm install react-router-dom
 npm install axios
+npm install 
 
 # API source for Crypto Currency
 https://www.coingecko.com/en/api
 https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2C%20ethereum&order=market_cap_desc&per_page=100&page=1&sparkline=false
+
+# Chartjs.org
+Library use chart.js: 
+npm install chart.js --save
+
+# Bootstrap Boilerplate
 
 
 # Getting Started with Create React App
