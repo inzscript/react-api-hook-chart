@@ -13,6 +13,8 @@ function App() {
         <BrowserRouter>
           <Header />
           <Route exact path="/" component={CoinSummaryPage} />
+          {/* Create a dynamic route based on coin id. */}
+          <Route path="/coins/:id" component={CoinDetailPage} />
         </BrowserRouter>
       </WatchListContextProvider>
       </div>
