@@ -64,10 +64,15 @@ function CoinDetailPage() {
     }, []);
 
     const renderData = () => {
-        <div className="coinlist">
-            <HistoryChart />
-            <CoinData />
-        </div>
+        if (isLoading) {
+            return <div>Loading....</div>;
+        } 
+        return ( 
+            <div className="coinlist">
+                <HistoryChart />
+                <CoinData />
+            </div>
+        );
     };
 
     return (
